@@ -18,4 +18,14 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-family: 'Playfair Display', serif;
+  max-width: 100%;
+}
+
+header {
+  text-align: center;
+}
+
+a:visited {
+  text-decoration: none;
+  color: black;
 }
