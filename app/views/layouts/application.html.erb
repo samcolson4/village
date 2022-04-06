@@ -14,10 +14,16 @@
   </head>
 
   <body>
-    <h1 id="site-title"><i>Village</i></h1>
+    <div id="site-title">
+      <h1><i>Village</i></h1>
+    </div>
+
     <div id="navigation">
       <h4><%= link_to 'noticeboard', "/" %> / <%= link_to 'sift', "/sift" %></h4>
     </div>
+
     <%= yield %>
+    <%= @days_running %>.
+
   </body>
 </html>

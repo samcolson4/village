@@ -5,8 +5,11 @@
     <% if post.image_url != "" %>
       <%= image_tag post.image_url %>
     <% end %>
-  <% end %>
 
-  <hr>
+    <% if @todays_posts[-1].headline != post.headline %>
+      <hr>
+    <% end %>
+
+  <% end %>
 
 <% end %>
