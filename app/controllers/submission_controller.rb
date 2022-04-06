@@ -1,0 +1,34 @@
+class SubmissionController < ApplicationController
+
+  def index
+    @submissions = Submission.all
+
+    @todays_posts = []
+    unused_posts = []
+
+    # find posts that have not been used
+    for submission in @submissions do
+      if !submission.used
+        unused_posts.append(submission)
+      end
+    end
+
+    # get the top 25% of the unused posts by score
+    unused_posts.sort_by { |post| post.score }
+    quarter = (unused_posts.length() / 4)
+    posts_to_check = unused_posts[0..quarter]
+
+    if unused_posts.length >= 8
+      8.times do
+        @todays_posts.append(unused_posts.shuffle!.pop)
+      end
+    else
+      unused_posts.length.times do
+        @todays_posts.append(unused_posts.shuffle!.pop)
+      end
+    end
+
+    return @todays_posts
+  end
+
+end
