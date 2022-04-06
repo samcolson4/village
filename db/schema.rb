@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_06_065341) do
   create_table "submissions", force: :cascade do |t|
     t.string "headline"
     t.string "url"
+    t.string "image_url"
     t.integer "score"
     t.boolean "today", default: false
     t.boolean "used", default: false

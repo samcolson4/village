@@ -34,6 +34,10 @@ class SubmissionController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
 
+    # Generate image
+    tmp_object = LinkThumbnailer.generate(@submission.url)
+    @submission.image_url = tmp_object.images.first.src.to_s
+
     if hasFields(@submission) && hasUniqueUrl(@submission)
       @submission.save
     end
