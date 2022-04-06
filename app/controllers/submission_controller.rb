@@ -31,4 +31,33 @@ class SubmissionController < ApplicationController
     return @todays_posts
   end
 
+  def create
+    @submission = Submission.new(submission_params)
+
+    if hasFields(@submission) && hasUniqueUrl(@submission)
+      @submission.save
+    end
+  end
+
+private
+  def hasFields(object)
+    object.headline != ""
+    object.url != ""
+  end
+
+  def hasUniqueUrl(object)
+    @submissions.each do |submission|
+      if object.url == submission.url
+        p "URL is not unique"
+        return false
+      end
+    end
+
+    return true
+  end
+
+  def submission_params
+    params.require(:submission).permit(:headline, :url)
+  end
+
 end
