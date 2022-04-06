@@ -14,8 +14,9 @@
   </head>
 
   <body>
-    <div>
-    <h1 class="header"><i>Village</i></h1>
+    <h1 id="site-title"><i>Village</i></h1>
+    <div id="navigation">
+      <h4><%= link_to 'noticeboard', "/" %> / <%= link_to 'sift', "/sift" %></h4>
     </div>
     <%= yield %>
   </body>
