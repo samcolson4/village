@@ -4,5 +4,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   root "submission#index"
   get '/sift', to: 'sift#index'
+  get '/submissions/new', to: 'submission#new'
+  post '/submissions/new', to: 'submission#create'
 
 end

@@ -31,15 +31,20 @@ class SubmissionController < ApplicationController
     return @todays_posts
   end
 
+  def new
+    @submission = Submission.new
+  end
+
   def create
     @submission = Submission.new(submission_params)
 
     # Generate image
-    tmp_object = LinkThumbnailer.generate(@submission.url)
-    @submission.image_url = tmp_object.images.first.src.to_s
+    # tmp_object = LinkThumbnailer.generate(@submission.url)
+    # @submission.image_url = tmp_object.images.first.src.to_s
 
     if hasFields(@submission) && hasUniqueUrl(@submission)
       @submission.save
+
     end
   end
 
@@ -50,6 +55,8 @@ private
   end
 
   def hasUniqueUrl(object)
+    @submissions = Submission.all
+
     @submissions.each do |submission|
       if object.url == submission.url
         p "URL is not unique"

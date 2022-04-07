@@ -1,0 +1,8 @@
+
+  <h2>New submission</h2>
+
+  <%= simple_form_for @submission, url: submissions_new_path do |f| %>
+    <%= f.input :headline %>
+    <%= f.input :url %>
+    <%= f.button :submit %>
+  <% end %>
