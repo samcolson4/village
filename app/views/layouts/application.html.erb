@@ -15,7 +15,14 @@
 
   <body>
     <div id="site-title">
-      <h1><i>Village</i></h1>
+      <%= link_to '/' do %>
+      <%= image_tag 'https://cdn-icons.flaticon.com/png/512/4502/premium/4502682.png?token=exp=1649309869~hmac=a52e47f1edd4c814776039c45a711b44', :id => 'query-button', :class => 'nav-button'%>
+      <% end %>
+      <span id="site-header"><i>Village</i></span>
+
+      <%= link_to '/' do %>
+      <%= image_tag 'https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/344/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png', :id => 'submission-button', :class => 'nav-button'%>
+      <% end %>
     </div>
 
     <div id="navigation">

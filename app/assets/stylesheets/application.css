@@ -42,7 +42,25 @@ img {
   text-align: center;
 }
 
+#site-header {
+  font-size: xx-large;
+}
+
 #navigation {
   margin: auto;
   text-align: center;
+}
+
+.nav-button {
+  position: absolute;
+  top:15px;
+  max-height: 30px;
+}
+
+#submission-button {
+  right: 20px;
+}
+
+#query-button {
+  left: 20px;
 }
