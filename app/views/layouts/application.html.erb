@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
@@ -22,8 +23,8 @@
       <% end %>
       <span id="site-header"><i>Village</i></span>
 
-      <%= link_to submissions_new_path do %>
-      <%= image_tag 'https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/344/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png', :id => 'submission-button', :class => 'nav-button', data: { "turbo-frame": "modal" } %>
+      <%= link_to submissions_new_path, data: { "turbo-frame": "modal" } do %>
+      <%= image_tag 'https://img.icons8.com/external-tanah-basah-detailed-outline-tanah-basah/344/external-plus-user-interface-tanah-basah-detailed-outline-tanah-basah.png', :id => 'submission-button', :class => 'nav-button' %>
       <% end %>
     </div>
 

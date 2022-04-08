@@ -44,7 +44,9 @@ class SubmissionController < ApplicationController
 
     if hasFields(@submission) && hasUniqueUrl(@submission)
       @submission.save
-
+      redirect_to root_path, notice: "Thank you for submitting a new notice."
+    else
+      redirect_to submissions_new_path, alert: "There was an error submitting your notice."
     end
   end
 

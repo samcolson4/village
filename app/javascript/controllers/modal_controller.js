@@ -1,7 +1,13 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus"
+import { enter, leave } from "./el-transition"
 
 export default class extends Controller {
+  static targets = ["wrapper", "body"]
+
   connect() {
+    enter(this.wrapperTarget)
+    enter(this.bodyTarget)
+
     document.addEventListener('turbo:submit-end', this.handleSubmit)
   }
 
@@ -10,8 +16,11 @@ export default class extends Controller {
   }
 
   close() {
-    // Remove the modal element so it doesn't blanket the screen
-    this.element.remove()
+    leave(this.wrapperTarget)
+    leave(this.bodyTarget).then(() => {
+      // Remove the modal element after the fade out so it doesn't blanket the screen
+      this.element.remove()
+    })
 
     // Remove src reference from parent frame element
     // Without this, turbo won't re-open the modal on subsequent clicks
