@@ -36,6 +36,9 @@ export default class extends Controller {
   handleSubmit = (e) => {
     if (e.detail.success) {
       this.close()
+    } else {
+      // Fix this to measure actual success
+      this.close()
     }
   }
 }
