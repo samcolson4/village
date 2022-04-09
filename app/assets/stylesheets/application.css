@@ -49,6 +49,10 @@ img {
 #navigation {
   margin: auto;
   text-align: center;
+  border: 1px solid black;
+  max-width: 40%;
+  padding: 2px;
+  margin-bottom: 0.3em;
 }
 
 .nav-button {
@@ -63,4 +67,11 @@ img {
 
 #query-button {
   left: 20px;
+}
+
+#top-bar {
+  color: #232020;
+  background-color: #232020;
+  height: 2px;
+  margin-bottom: 13px;
 }

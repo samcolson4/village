@@ -18,6 +18,12 @@ class SubmissionController < ApplicationController
     quarter = (unused_posts.length() / 4)
     posts_to_check = unused_posts[0..quarter]
 
+    unused_posts.each_with_index do |post, i|
+      if post.image_url == nil
+        unused_posts.delete_at(i)
+      end
+    end
+
     if unused_posts.length >= 8
       8.times do
         @todays_posts.append(unused_posts.shuffle!.pop)
