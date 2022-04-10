@@ -1,0 +1,19 @@
+#submit-form {
+
+}
+
+#submit-form h1 {
+  font-size: large;
+}
+
+.btn {
+  transition: ease-in;
+  padding: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
+  transition: all 0.5s;
+}
+
+.btn:hover {
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}

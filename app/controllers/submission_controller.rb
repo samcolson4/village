@@ -34,7 +34,9 @@ class SubmissionController < ApplicationController
       end
     end
 
-    return @todays_posts
+    @css_random = build_random_css()
+
+    return @todays_posts, @css_random
   end
 
   def new
@@ -51,7 +53,6 @@ class SubmissionController < ApplicationController
     if hasFields(@submission) && hasUniqueUrl(@submission)
       @submission.save
       redirect_to root_path, notice: "Thank you for submitting a new notice."
-
     else
       redirect_to submissions_new_path, alert: "There was an error submitting your notice."
     end
@@ -59,8 +60,8 @@ class SubmissionController < ApplicationController
 
 private
   def hasFields(object)
-    object.headline != ""
-    object.url != ""
+    object.headline != nil
+    object.url != nil
   end
 
   def hasUniqueUrl(object)
@@ -78,6 +79,25 @@ private
 
   def submission_params
     params.require(:submission).permit(:headline, :url)
+  end
+
+  def build_random_css
+    output = []
+    output.append(rand(0..7))
+
+    7.times do
+      random_num = rand(0..7)
+
+      if output[-1] == random_num && random_num < 7
+        output.append(random_num+1)
+      elsif output[-1] == random_num && random_num == 7
+        output.append(random_num-1)
+      else
+        output.append(random_num)
+      end
+    end
+
+    return output
   end
 
 end
