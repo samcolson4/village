@@ -31,32 +31,32 @@
   margin: auto;
   max-height: 35px;
   max-width: 35px;
-  transform: translateY(10px);
+  transform: translateY(-10px);
 }
 
 #post-0 {
   border: 10px solid #b0d0d3;
-  transform: rotate(1deg);
+  transform: rotate(0.6deg);
 }
 
 #post-1 {
   border: 10px solid #ffcad4;
-  transform: rotate(-1deg);
+  transform: rotate(-0.5deg);
 }
 
 #post-2 {
   border: 10px solid #d0f4De;
-  transform: rotate(-2deg);
+  transform: rotate(-0.4deg);
 }
 
 #post-3 {
   border: 10px solid #ff99C8;
-  transform: rotate(2deg);
+  transform: rotate(0.3deg);
 }
 
 #post-4 {
   border: 10px solid #a9def9;
-  transform: rotate(3deg);
+  transform: rotate(0.5deg);
 }
 
 #post-5 {
@@ -66,7 +66,7 @@
 
 #post-6 {
   border: 10px solid #d0f4De;
-  transform: rotate(3deg);
+  transform: rotate(0.2deg);
 }
 
 .pallette {
