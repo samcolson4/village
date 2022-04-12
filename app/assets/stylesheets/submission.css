@@ -27,3 +27,7 @@
  justify-content: center;
  align-items: center;
 }
+
+#modal-header {
+  font-size: x-large;
+}

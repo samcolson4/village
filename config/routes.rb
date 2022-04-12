@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get '/sift', to: 'sift#index'
   get '/submissions/new', to: 'submission#new'
   post '/submissions/new', to: 'submission#create'
-
+  get '/about-us', to: 'submission#about-us'
 end

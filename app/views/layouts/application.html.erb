@@ -19,7 +19,7 @@
   <div id="menu-bar">
 
     <div id="site-title">
-      <%= link_to '/' do %>
+      <%= link_to about_us_path, data: { "turbo-frame": "modal" } do %>
       <%= image_tag "question.png", :id => 'query-button', :class => 'nav-button'%>
       <% end %>
       <span id="site-header"><i>Village</i></span>
