@@ -7,49 +7,66 @@
  }
 
 .post {
-  margin: auto;
-  max-width: 70%;
   text-align: center;
-  border-radius: 3px;
-  background-color: white;
   min-height: 50vh;
-  -webkit-box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
-  box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
   display: flex;
   justify-content: center;
   align-items: center;
- }
+}
 
- .post h2 {
+.post h2 {
    padding: 10px;
- }
+}
+
+.outer-post {
+  margin: auto;
+  max-width: 70%;
+  -webkit-box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
+  box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
+  background-color: white;
+  border-radius: 3px;
+}
+
+.post-pin {
+  margin: auto;
+  max-height: 35px;
+  max-width: 35px;
+  transform: translateY(10px);
+}
 
 #post-0 {
-  border: 10px solid #b0d0d3 ;
+  border: 10px solid #b0d0d3;
+  transform: rotate(1deg);
 }
 
 #post-1 {
   border: 10px solid #ffcad4;
+  transform: rotate(-1deg);
 }
 
 #post-2 {
   border: 10px solid #d0f4De;
+  transform: rotate(-2deg);
 }
 
 #post-3 {
   border: 10px solid #ff99C8;
+  transform: rotate(2deg);
 }
 
 #post-4 {
   border: 10px solid #a9def9;
+  transform: rotate(3deg);
 }
 
 #post-5 {
   border: 10px solid #eec643;
+  transform: rotate(0deg);
 }
 
 #post-6 {
   border: 10px solid #d0f4De;
+  transform: rotate(3deg);
 }
 
 .pallette {

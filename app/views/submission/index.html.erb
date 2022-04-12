@@ -1,12 +1,14 @@
 <% @todays_posts.each_with_index do |post, i| %>
 
+  <div class="outer-post" id=<%="post-#{@css_random[i]}"%>>
   <%= image_tag "pin.png", :class => 'post-pin'%>
-  <div class="post" id=<%="post-#{@css_random[i]}"%>>
+  <div class="post"%>
   <%= link_to post.url, target: :_blank do %>
   <%= image_tag post.image_url, :class => "post-image"%>
   <h2> <%= post.headline %> </h2>
   </div>
   <% end %>
+  </div>
 
   <% if @todays_posts[-1].headline != post.headline %>
     <br>
