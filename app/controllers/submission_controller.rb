@@ -1,6 +1,6 @@
 class SubmissionController < ApplicationController
 
-  POSTS = 8
+  POSTS = 6
 
   def index
     @submissions = Submission.all
