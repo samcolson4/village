@@ -29,10 +29,6 @@ class SubmissionController < ApplicationController
   def create
     @submission = Submission.new(submission_params)
 
-    # Generate image
-    # tmp_object = LinkThumbnailer.generate(@submission.url)
-    # @submission.image_url = tmp_object.images.first.src.to_s
-
     if hasFields(@submission) && hasUniqueUrl(@submission)
       @submission.save
       redirect_to root_path, notice: "Thank you for submitting a new notice."
@@ -106,6 +102,13 @@ private
     quarter = (unused_posts.length() / 4)
     posts_to_check = unused_posts[0..quarter]
 
+    # Get images #TODO: refactor to cron job
+    for post in posts_to_check
+      if post.image_url == nil
+        get_image(post)
+      end
+    end
+
     unused_posts.each_with_index do |post, i|
       if post.image_url == nil
         unused_posts.delete_at(i)
@@ -124,4 +127,16 @@ private
 
     @todays_posts = mark_todays(@todays_posts)
   end
+
+  def get_image(post)
+    begin
+      tmp_object = LinkThumbnailer.generate(post.url, attributes: [:images], image_limit: 1, image_stats: false)
+    rescue LinkThumbnailer::Exceptions => e
+      p "#{post.headline} image retrieval error: #{e}"
+    else
+      post.image_url = tmp_object.images.first.src.to_s
+      post.save()
+    end
+  end
+
 end
