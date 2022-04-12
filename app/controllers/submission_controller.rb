@@ -1,37 +1,20 @@
 class SubmissionController < ApplicationController
 
+  POSTS = 8
+
   def index
     @submissions = Submission.all
-
     @todays_posts = []
-    unused_posts = []
 
-    # find posts that have not been used
+    # find today's posts (if they exist)
     for submission in @submissions do
-      if !submission.used
-        unused_posts.append(submission)
+      if submission.used_date = Date.today
+        @todays_posts.append()
       end
     end
 
-    # get the top 25% of the unused posts by score
-    unused_posts.sort_by { |post| post.score }
-    quarter = (unused_posts.length() / 4)
-    posts_to_check = unused_posts[0..quarter]
-
-    unused_posts.each_with_index do |post, i|
-      if post.image_url == nil
-        unused_posts.delete_at(i)
-      end
-    end
-
-    if unused_posts.length >= 8
-      8.times do
-        @todays_posts.append(unused_posts.shuffle!.pop)
-      end
-    else
-      unused_posts.length.times do
-        @todays_posts.append(unused_posts.shuffle!.pop)
-      end
+    if @todays_posts.length < POSTS
+      @todays_posts = build_todays_posts()
     end
 
     @css_random = build_random_css()
@@ -100,4 +83,45 @@ private
     return output
   end
 
+  def mark_todays(posts)
+    for post in posts do
+      post.today = true
+      post.used_date = Date.today
+      post.save
+    end
+  end
+
+  def build_todays_posts()
+    unused_posts = []
+
+    # find posts that have not been used
+    for submission in @submissions do
+      if !submission.used
+        unused_posts.append(submission)
+      end
+    end
+
+    # get the top 25% of the unused posts by score
+    unused_posts.sort_by { |post| post.score }
+    quarter = (unused_posts.length() / 4)
+    posts_to_check = unused_posts[0..quarter]
+
+    unused_posts.each_with_index do |post, i|
+      if post.image_url == nil
+        unused_posts.delete_at(i)
+      end
+    end
+
+    if unused_posts.length >= POSTS
+      POSTS.times do
+        @todays_posts.append(unused_posts.shuffle!.pop)
+      end
+    else
+      unused_posts.length.times do
+        @todays_posts.append(unused_posts.shuffle!.pop)
+      end
+    end
+
+    @todays_posts = mark_todays(@todays_posts)
+  end
 end
