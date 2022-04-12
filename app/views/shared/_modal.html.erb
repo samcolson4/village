@@ -8,7 +8,7 @@
     role="dialog"
     aria-modal="true"
   >
-    <div class="flex items-end justify-center min-h-screen  pb-20 sm:block sm:p-0">
+    <div class="flex items-end justify-center min-h-screen  pb-20 sm:block sm:p-0 modal-outer">
       <div
         data-action="click->modal#close"
         data-modal-target="wrapper"
@@ -35,15 +35,16 @@
         data-transition-leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
         class="inline-block align-bottom bg-white rounded-lg px-4 pt-5 pb-4 text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-sm sm:w-full sm:p-6"
       >
-        <div>
-          <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-ui-red sm:mx-0 sm:h-10 sm:w-10">
-            <button data-action="modal#close">X</button>
-          </div>
+        <div class="mx-auto flex items-center justify-center h-12 w-12 rounded-full bg-ui-red ">
+          <button data-action="modal#close">dismiss</button>
+        </div>
 
+        <div class="modal-inner">
           <%= turbo_frame_tag "modal-body" do %>
             <%= yield %>
           <% end %>
         </div>
+
       </div>
     </div>
   </div>
