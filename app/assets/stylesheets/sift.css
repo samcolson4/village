@@ -1,0 +1,10 @@
+.sift-body {
+  margin: auto;
+}
+
+.sift-post {
+  border: 10px solid #b0d0d3;
+  padding: 10px;
+  margin-bottom: 10px;
+  /* max-height: 50vh; */
+}

@@ -18,9 +18,20 @@
    padding: 10px;
 }
 
+@media only screen and (max-width: 600px) {
+  .outer-post {
+    max-width: 70%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .outer-post {
+    max-width: 45%;
+  }
+}
+
 .outer-post {
   margin: auto;
-  max-width: 70%;
   -webkit-box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
   box-shadow: 5px 5px 6px -5px rgba(0,0,0,0.7);
   background-color: white;
