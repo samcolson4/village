@@ -5,12 +5,39 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,700;0,800;1,300&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
   </head>
 
   <body>
+  <%= turbo_frame_tag "modal" %>
+  <div id="menu-bar">
+
+    <div id="site-title">
+      <%= link_to about_us_path, data: { "turbo-frame": "modal" } do %>
+      <%= image_tag "question.png", :id => 'query-button', :class => 'nav-button'%>
+      <% end %>
+      <span id="site-header"><i>Village</i></span>
+
+      <%= link_to submissions_new_path, data: { "turbo-frame": "modal" } do %>
+      <%= image_tag 'plus.png', :id => 'submission-button', :class => 'nav-button' %>
+      <% end %>
+    </div>
+
+    <div id="navigation">
+      <h4><%= link_to 'noticeboard', "/" %> / <%= link_to 'sift', "/sift" %></h4>
+    </div>
+
+    <hr id="top-bar">
+    </div>
     <%= yield %>
+    <div id="days-running">
+      <%= @days_running %>.
+    </div>
   </body>
 </html>
